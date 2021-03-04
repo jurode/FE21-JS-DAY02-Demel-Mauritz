@@ -13,8 +13,11 @@
     </div>
 
     <script>
-        function ATM(){                                             // zB 280 €
+        function ATM(){ 
+            guthaben = 1000;
             let money = document.getElementById("amount").value     // take the value of the input
+            let restGuthaben = guthaben - money;                
+            if (money % 10 == 0){                                    // zB 280 €
 
             let notes100 = Math.floor(money / 100);                 // 280 : 100 = 2.8 => abrunden mit Math.floor auf 2 // 630/100 = 6 
             money = money % 100;                                    // money = 280 - 2 * 100  => money ist jetzt 80€ // 630 - (6*100) = 30
@@ -30,6 +33,10 @@
             let result = `${notes100} bills ${notes50} bills ${notes20} bills ${notes10} bills`;
 
             document.write("Your amount is: " + result + ".");
+            document.write(restGuthaben);
+        } else {
+            alert("Invalid");
+        }
  
         }
         
