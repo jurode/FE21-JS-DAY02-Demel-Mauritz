@@ -12,20 +12,23 @@
     <script>
 
         
-        function CrystalGazer(job_title, location, partners_name, number_children){
-            document.write(`You will be a ${job_title} in ${location} and married to ${partners_name} with ${number_children}.`);
-        }
-        CrystalGazer("Hacker", "Paris", "Jane", 4);
+        // function CrystalGazer(job_title, location, partners_name, number_children){
+        //     document.write(`You will be a ${job_title} in ${location} and married to ${partners_name} with ${number_children}.`);
+        // }
+        // CrystalGazer("Hacker", "Paris", "Jane", 4);
         
         // ? not working below
 
-        // function CrystalGazer(job_title, location, partners_name, number_children){
-        //     if (job_title === typeof(String) && location === typeof(String) && partners_name === typeof(String) && number_children == typeof(Number)){
-        //         console.log(`You will be a ${job_title} in ${location} and married to ${partners_name} with ${number_children}.`);
-        //     }   else {
-        //         console.log("Input incorrect");
-        //     }
-        // };
+        function CrystalGazer(job_title, location, partners_name, number_children){
+            if (typeof job_title === "string" && typeof number_children === "number") {
+                console.log(`You will be a ${job_title} in ${location} and married to ${partners_name} with ${number_children}.`);
+            }   else {
+                console.log("Input incorrect");
+            }
+        };
+
+        CrystalGazer("programmer", "paris", "jane", 2);
+
 
     </script>
 
