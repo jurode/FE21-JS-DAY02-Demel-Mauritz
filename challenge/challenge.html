@@ -8,38 +8,29 @@
 </head>
 <body>
     <div>
-        <form>
-            <input type="number" placeholder="Type amount here" name="money" id="money">
-            <button onclick="ATM(money)">Withdraw</button>
-        </form>
+            <input type="number" id="amount" min="10" max="10000">
+            <button onclick="ATM()">Withdraw</button>
     </div>
-    <div id="output">
-        
-    </div>
-
-
 
     <script>
-        function ATM(money){                                // zB 280 €
-            money = Number(money);
-            let notes100 = Math.floor(money / 100);         // 280 : 100 = 2.8 => abrunden mit Math.floor auf 2 // 630/100 = 6 
-            money = money % 100;                 // money = 280 - 2 * 100  => money ist jetzt 80€ // 630 - (6*100) = 30
+        function ATM(){                                             // zB 280 €
+            let money = document.getElementById("amount").value     // take the value of the input
 
-            let notes50 = Math.floor(money / 50);           // 80 : 50 = 1... => abrunden auf 1 //  30 / 50 = 0...
-            money = money % 50;                   // money = 80 - 1 * 50 => money ist jetzt 30€ // 30 - (0*50) = 30
+            let notes100 = Math.floor(money / 100);                 // 280 : 100 = 2.8 => abrunden mit Math.floor auf 2 // 630/100 = 6 
+            money = money % 100;                                    // money = 280 - 2 * 100  => money ist jetzt 80€ // 630 - (6*100) = 30
 
-            let notes20 = Math.floor(money / 20);           // 30 : 20 = 1... // 30 / 20 = 1...
-            money = money % 20;                   // money = 30 - 1 * 20 = 10€ // 30 - (1 *20) = 10
+            let notes50 = Math.floor(money / 50);                   // 80 : 50 = 1... => abrunden auf 1 //  30 / 50 = 0...
+            money = money % 50;                                     // money = 80 - 1 * 50 => money ist jetzt 30€ // 30 - (0*50) = 30
 
-            let notes10 = money / 10;                       // 10 : 10 = 1 //  10/10 = 1
+            let notes20 = Math.floor(money / 20);                   // 30 : 20 = 1... // 30 / 20 = 1...
+            money = money % 20;                                     // money = 30 - 1 * 20 = 10€ // 30 - (1 *20) = 10
+
+            let notes10 = money / 10;                               // 10 : 10 = 1 //  10/10 = 1
 
             let result = `${notes100} bills ${notes50} bills ${notes20} bills ${notes10} bills`;
 
-            document.getElementById("output").innerHTML = "Your amount is: " + result + ".";
-                            // notes100} x 100 <br>
-                            // ${notes50} x 50 <br> 
-                            // ${notes20} x 20 <br>
-                            // ${notes10} x 10 <br>`;
+            document.write("Your amount is: " + result + ".");
+ 
         }
         
         //   ATM(10);
