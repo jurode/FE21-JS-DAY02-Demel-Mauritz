@@ -7,10 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div>
+        <form>
+            <input type="number" placeholder="Type amount here" name="money" id="money">
+            <button onclick="ATM(money)">Withdraw</button>
+        </form>
+    </div>
+    <div id="output">
+        
+    </div>
+
+
+
     <script>
         function ATM(money){                                // zB 280 €
-
+            money = Number(money);
             let notes100 = Math.floor(money / 100);         // 280 : 100 = 2.8 => abrunden mit Math.floor auf 2 // 630/100 = 6 
             money = money % 100;                 // money = 280 - 2 * 100  => money ist jetzt 80€ // 630 - (6*100) = 30
 
@@ -22,13 +33,16 @@
 
             let notes10 = money / 10;                       // 10 : 10 = 1 //  10/10 = 1
 
-            document.write(`${notes100} x 100 <br>
-                            ${notes50} x 50 <br> 
-                            ${notes20} x 20 <br>
-                            ${notes10} x 10 <br>`)
-        }
+            let result = `${notes100} bills ${notes50} bills ${notes20} bills ${notes10} bills`;
 
-        ATM(630);
+            document.getElementById("output").innerHTML = "Your amount is: " + result + ".";
+                            // notes100} x 100 <br>
+                            // ${notes50} x 50 <br> 
+                            // ${notes20} x 20 <br>
+                            // ${notes10} x 10 <br>`;
+        }
+        
+        //   ATM(10);
     </script>
 </body>
 </html>
